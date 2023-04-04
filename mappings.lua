@@ -6,23 +6,61 @@
 return {
   -- first key is the mode
   n = {
-    -- second key is the lefthand side of the map
-    -- mappings seen under group name "Buffer"
-    ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-    ["<leader>bD"] = {
-      function()
-        require("astronvim.utils.status").heirline.buffer_picker(function(bufnr) require("astronvim.utils.buffer").close(bufnr) end)
-      end,
-      desc = "Pick to close",
+    ["<A-j>"] = { ":m .+1<cr>==", desc = "Move line up" },
+    ["<A-k>"] = { ":m .-2<cr>==", desc = "Move line down" },
+
+    ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
+    ["<leader>D"] = { '"_d', desc = "Delete to void" },
+
+    ["<leader>/"] = false,
+    ["<leader>C"] = false,
+    ["<leader>bc"] = false,
+    ["<leader>bC"] = false,
+    ["<leader>bd"] = false,
+
+    ["<leader>c"] = { name = "Close", desc = "❌ Close" },
+    ["<leader>ca"] = {
+      function() require("astronvim.utils.buffer").close_all() end,
+      desc = "All buffers",
     },
-    -- tables with the `name` key will be registered with which-key if it's installed
-    -- this is useful for naming menus
-    ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<leader>cb"] = {
+      function()
+        require("astronvim.utils.status").heirline.buffer_picker(
+          function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
+        )
+      end,
+      desc = "Pick buffer",
+    },
+    ["<leader>co"] = {
+      function() require("astronvim.utils.buffer").close_all(true) end,
+      desc = "Other buffers",
+    },
+    ["<leader>cc"] = {
+      function() require("astronvim.utils.buffer").close() end,
+      desc = "Current Buffer",
+    },
+
+    ['<leader>f"'] = {
+      ":Telescope registers<cr>",
+      desc = "Find registers",
+    },
+  },
+  i = {
+    ["<A-k>"] = { "<esc>:m .-2<cr>==gi", desc = "Move line down" },
+    ["<A-j>"] = { "<esc>:m .+1<cr>==gi", desc = "Move line up" },
+  },
+  v = {
+    ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
+    ["D"] = { '"_d', desc = "Delete to void" },
+
+    [">"] = { ">gv" },
+    ["<"] = { "<gv" },
+
+    ["<S-j>"] = { "j" },
+    ["<S-k>"] = { "k" },
+    ["<A-j>"] = { ":m '>+1<cr><esc>gv=gv", desc = "Move line up" },
+    ["<A-k>"] = { ":m '<-2<cr><esc>gv=gv", desc = "Move line down" },
   },
   t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
   },
 }

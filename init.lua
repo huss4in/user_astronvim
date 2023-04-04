@@ -2,9 +2,9 @@ return {
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
-    channel = "stable", -- "stable" or "nightly"
+    channel = "nightly", -- "stable" or "nightly"
     version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-    branch = "nightly", -- branch name (NIGHTLY ONLY)
+    branch = "main", -- branch name (NIGHTLY ONLY)
     commit = nil, -- commit hash (NIGHTLY ONLY)
     pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
     skip_prompts = false, -- skip prompts about breaking changes
@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+  colorscheme = "material",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -31,7 +31,7 @@ return {
     formatting = {
       -- control auto formatting on save
       format_on_save = {
-        enabled = true, -- enable or disable format on save globally
+        enabled = false, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           -- "go",
         },
@@ -40,7 +40,7 @@ return {
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
-        -- "sumneko_lua",
+        "lua_ls",
       },
       timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -51,6 +51,13 @@ return {
     servers = {
       -- "pyright"
     },
+    -- easily add or disable built in mappings added during LSP attaching
+    mappings = {
+      n = {
+        -- ["<leader>lf"] = false -- disable formatting keymap
+        ["gff"] = { "<cmd>Format<cr>", desc = "Format" },
+      },
+    },
   },
 
   -- Configure require("lazy").setup() options
@@ -60,6 +67,45 @@ return {
       rtp = {
         -- customize default disabled vim plugins
         disabled_plugins = { "tohtml", "gzip", "matchit", "zipPlugin", "netrwPlugin", "tarPlugin" },
+      },
+    },
+  },
+
+  icons = {
+    VimIcon = "",
+    ScrollText = "",
+
+    GitBranch = "",
+    GitAdd = "",
+    GitChange = "",
+    GitDelete = "",
+  },
+
+  -- modify variables used by heirline but not defined in the setup call directly
+  heirline = {
+    -- define the separators between each section
+    separators = {
+      left = { "", "  " }, -- separator for the left side of the statusline
+      right = { " ", "" }, -- separator for the right side of the statusline
+      tab = { " ", " " },
+    },
+    -- add new colors that can be used by heirline
+    colors = function(hl)
+      local get_hlgroup = require("astronvim.utils").get_hlgroup
+      -- use helper function to get highlight group properties
+      hl.blank_bg = get_hlgroup("Folded").fg
+      hl.file_info_bg = get_hlgroup("Visual").bg
+      hl.nav_icon_bg = get_hlgroup("String").fg
+      hl.nav_fg = hl.nav_icon_bg
+      hl.folder_icon_bg = get_hlgroup("Error").fg
+      return hl
+    end,
+    attributes = {
+      mode = { bold = true },
+    },
+    icon_highlights = {
+      file_icon = {
+        statusline = true,
       },
     },
   },
@@ -79,6 +125,11 @@ return {
     --   pattern = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
-    -- }
+
+    vim.filetype.add {
+      pattern = {
+        ["Dockerfile.*"] = "Dockerfile",
+      },
+    }
   end,
 }
