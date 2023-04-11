@@ -52,6 +52,18 @@ return {
     servers = {
       -- "pyright"
     },
+    -- configure language servers
+    config = {
+      ["rust_analyzer"] = {
+        settings = {
+          ["rust-analyzer"] = {
+            lens = {
+              enable = false,
+            },
+          },
+        },
+      },
+    },
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
       n = {
@@ -126,11 +138,5 @@ return {
     --   pattern = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
-
-    vim.filetype.add {
-      pattern = {
-        ["Dockerfile.*"] = "Dockerfile",
-      },
-    }
   end,
 }

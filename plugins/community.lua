@@ -15,7 +15,6 @@ return {
   -- Pack
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.bash" },
@@ -46,7 +45,7 @@ return {
     "m4xshen/smartcolumn.nvim",
     opts = {
       colorcolumn = 120,
-      disabled_filetypes = { "help" },
+      -- disabled_filetypes = { "help" },
     },
   },
 }
