@@ -28,7 +28,6 @@ return {
 
     -- themes
     material_style = "deep ocean",
-    tokyonight_style = "night",
 
     -- neovide
     neovide_refresh_rate = 165,

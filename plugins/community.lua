@@ -7,6 +7,12 @@ return {
   -- { import = "astrocommunity.colorscheme.catppuccin" },
   -- { import = "astrocommunity.completion.copilot-lua-cmp" },
 
+  -- Colorscheme
+  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.nightfox" },
+  { import = "astrocommunity.colorscheme.tokyonight" },
+
+  -- Pack
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.toml" },
@@ -16,6 +22,7 @@ return {
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.markdown" },
 
+  -- Completions
   { import = "astrocommunity.completion.copilot-lua" },
   {
     "copilot.lua",
@@ -33,6 +40,7 @@ return {
     },
   },
 
+  -- Others
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   {
     "m4xshen/smartcolumn.nvim",
