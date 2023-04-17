@@ -6,6 +6,9 @@
 return {
   -- first key is the mode
   n = {
+    ["L"] = { "$", desc = "$" },
+    ["H"] = { "^", desc = "^" },
+
     ["<A-j>"] = { ":m .+1<cr>==", desc = "Move line up" },
     ["<A-k>"] = { ":m .-2<cr>==", desc = "Move line down" },
 
@@ -50,6 +53,9 @@ return {
     ["<A-j>"] = { "<esc>:m .+1<cr>==gi", desc = "Move line up" },
   },
   v = {
+    ["L"] = { "$", desc = "$" },
+    ["H"] = { "^", desc = "^" },
+
     ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
     ["D"] = { '"_d', desc = "Delete to void" },
 
@@ -61,6 +67,5 @@ return {
     ["<A-j>"] = { ":m '>+1<cr><esc>gv=gv", desc = "Move line up" },
     ["<A-k>"] = { ":m '<-2<cr><esc>gv=gv", desc = "Move line down" },
   },
-  t = {
-  },
+  t = {},
 }

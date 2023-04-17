@@ -29,8 +29,8 @@ return {
       suggestion = {
         keymap = {
           accept = "<C-l>",
-          accept_word = false,
-          accept_line = false,
+          accept_word = "<C-k>",
+          accept_line = "<C-j>",
           next = "<C-.>",
           prev = "<C-,>",
           dismiss = "<C/>",
