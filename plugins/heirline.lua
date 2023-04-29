@@ -85,7 +85,7 @@ return {
           },
           status.component.nav {
             percentage = {},
-            ruler = { padding = { left = 1 } },
+            ruler = { padding = { left = 0 } },
             scrollbar = {},
             surround = { separator = "none", color = "file_info_bg" },
           },
