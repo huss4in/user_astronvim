@@ -13,6 +13,7 @@ return {
   { import = "astrocommunity.colorscheme.tokyonight" },
 
   -- Pack
+  { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.pack.yaml" },
