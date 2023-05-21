@@ -19,6 +19,7 @@ return {
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.bash" },
+  { import = "astrocommunity.pack.java" },
   { import = "astrocommunity.pack.python" },
   { import = "astrocommunity.pack.markdown" },
 
