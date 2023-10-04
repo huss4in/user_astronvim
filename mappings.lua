@@ -6,27 +6,40 @@
 return {
   -- first key is the mode
   n = {
-    ["L"] = { "$", desc = "$" },
-    ["H"] = { "^", desc = "^" },
+    -- second key is the lefthand side of the map
 
-    ["<A-j>"] = { ":m .+1<cr>==", desc = "Move line up" },
-    ["<A-k>"] = { ":m .-2<cr>==", desc = "Move line down" },
+    -- navigate buffer tabs with `H` and `L`
+    -- L = {
+    --   function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+    --   desc = "Next buffer",
+    -- },
+    -- H = {
+    --   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+    --   desc = "Previous buffer",
+    -- },
 
-    ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
-    ["<leader>D"] = { '"_d', desc = "Delete to void" },
-
-    ["<leader>/"] = false,
-    ["<leader>C"] = false,
-    ["<leader>bc"] = false,
-    ["<leader>bC"] = false,
-    ["<leader>bd"] = false,
-
-    ["<leader>c"] = { name = "Close", desc = "❌ Close" },
-    ["<leader>ca"] = {
-      function() require("astronvim.utils.buffer").close_all() end,
-      desc = "All buffers",
-    },
-    ["<leader>cb"] = {
+    -- mappings seen under group name "Buffer"
+      ["L"] = { "$", desc = "$" },
+      ["H"] = { "^", desc = "^" },
+  
+      ["<A-j>"] = { ":m .+1<cr>==", desc = "Move line up" },
+      ["<A-k>"] = { ":m .-2<cr>==", desc = "Move line down" },
+  
+      ["<leader>y"] = { '"+y', desc = "Yank to clipboard" },
+      ["<leader>D"] = { '"_d', desc = "Delete to void" },
+  
+      ["<leader>/"] = false,
+      ["<leader>C"] = false,
+      ["<leader>bc"] = false,
+      ["<leader>bC"] = false,
+      ["<leader>bd"] = false,
+  
+      ["<leader>c"] = { name = "Close", desc = "❌ Close" },
+      ["<leader>ca"] = {
+        function() require("astronvim.utils.buffer").close_all() end,
+        desc = "All buffers",
+      },
+      ["<leader>cb"] = {
       function()
         require("astronvim.utils.status").heirline.buffer_picker(
           function(bufnr) require("astronvim.utils.buffer").close(bufnr) end
