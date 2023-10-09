@@ -8,8 +8,8 @@ return {
 
         status.component.mode {
           mode_text = { icon = { kind = "VimIcon", padding = { right = 1, left = 1 } } },
+          padding = { right = 1 },
           surround = {
-            separator = "left",
             color = function() return { main = status.hl.mode_bg(), right = "file_info_bg" } end,
           },
         },
@@ -85,7 +85,7 @@ return {
           },
           status.component.nav {
             percentage = {},
-            ruler = { padding = { left = 0 } },
+            ruler = { padding = { left = 1 } },
             scrollbar = {},
             surround = { separator = "none", color = "file_info_bg" },
           },
