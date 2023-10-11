@@ -12,12 +12,12 @@ return {
 
   {
     "sitiom/nvim-numbertoggle",
-    lazy = false,
+    event = "BufRead",
   },
 
   {
     "tpope/vim-surround",
-    lazy = false,
+    event = "BufRead",
   },
 
   {
