@@ -54,15 +54,15 @@ return {
     },
     -- configure language servers
     config = {
-      ["rust_analyzer"] = {
-        settings = {
-          ["rust-analyzer"] = {
-            lens = {
-              enable = false,
-            },
-          },
-        },
-      },
+      -- ["rust_analyzer"] = {
+      --   settings = {
+      --     ["rust-analyzer"] = {
+      --       lens = {
+      --         enable = false,
+      --       },
+      --     },
+      --   },
+      -- },
     },
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
