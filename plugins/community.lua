@@ -35,7 +35,7 @@ return {
           accept_line = "<C-j>",
           next = "<M-.>",
           prev = "<M-,>",
-          dismiss = "<Esc>",
+          dismiss = "<C-c>",
         },
       },
     },
