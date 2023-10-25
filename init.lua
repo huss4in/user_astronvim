@@ -68,7 +68,7 @@ return {
     mappings = {
       n = {
         -- ["<leader>lf"] = false -- disable formatting keymap
-        ["gff"] = { "<cmd>Format<cr>", desc = "Format" },
+        ["gq"] = { "<cmd>Format<cr>", desc = "Format" },
       },
     },
   },
